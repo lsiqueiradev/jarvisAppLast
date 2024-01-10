@@ -1,5 +1,11 @@
+import { AppProvider } from './hooks'
+
 import { Routes } from './routes'
 
 export function App() {
-  return <Routes />
+  return (
+    <AppProvider>
+      <Routes />
+    </AppProvider>
+  )
 }

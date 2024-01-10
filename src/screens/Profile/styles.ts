@@ -1,12 +1,7 @@
 import styled from 'styled-components/native'
 
-export const Container = styled.View`
-  flex: 1;
-  align-items: center;
-  justify-content: center;
-`
+import { ScrollViewAnimated } from '@components/ScrollViewAnimated'
 
-export const Title = styled.Text`
-  font-size: 40px;
-  font-family: 'Poppins-Black';
+export const Container = styled(ScrollViewAnimated)`
+  flex: 1;
 `
