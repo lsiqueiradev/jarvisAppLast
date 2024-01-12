@@ -18,6 +18,6 @@ export function signIn(): Promise<ResponseSignIn> {
           email: 'lucas@lsiqueira.dev',
         },
       })
-    }, 2000)
+    }, 1000)
   })
 }

@@ -113,7 +113,10 @@ export function AuthContextProvider({ children }: AuthProviderProps) {
 
   async function signOut() {
     setData({} as AuthState)
-    await AsyncStorage.clear()
+    await AsyncStorage.multiRemove([
+      ASYNC_STORAGE_KEY_USER,
+      ASYNC_STORAGE_KEY_TOKEN,
+    ])
   }
 
   return (

@@ -1,5 +1,3 @@
-import { ActivityIndicator, Button } from 'react-native'
-
 import { useNavigation } from '@react-navigation/native'
 import { useAuth } from '@hooks/useAuth'
 
@@ -15,10 +13,18 @@ export function SignIn() {
 
   return (
     <S.Container>
-      <S.Title>SignIn</S.Title>
-      <Button title="Entrar" onPress={handleSignIn} />
-      {isFetchUserLoading && <ActivityIndicator />}
-      <Button title="Cadastrar" onPress={() => navigate('SignUp')} />
+      <S.Body>
+        <S.ButtonSignIn
+          title="entrar"
+          onPress={handleSignIn}
+          isDisabled={isFetchUserLoading}
+        />
+        <S.ButtonSignUp
+          title="cadastrar"
+          onPress={() => navigate('SignUp')}
+          variant="outline"
+        />
+      </S.Body>
     </S.Container>
   )
 }

@@ -1,7 +1,9 @@
 import { ReactNode } from 'react'
 
-import { AuthContextProvider } from '@contexts/AuthContext'
 import { ThemeContextProvider } from '@contexts/ThemeContext'
+import { AuthContextProvider } from '@contexts/AuthContext'
+import { BottomSheetModalProvider } from '@gorhom/bottom-sheet'
+import { ViewRoot, ViewSafeAreaProvider } from '@components/Views'
 
 interface AppProviderProps {
   children: ReactNode
@@ -9,9 +11,15 @@ interface AppProviderProps {
 
 function AppProvider({ children }: AppProviderProps) {
   return (
-    <AuthContextProvider>
-      <ThemeContextProvider>{children}</ThemeContextProvider>
-    </AuthContextProvider>
+    <ThemeContextProvider>
+      <AuthContextProvider>
+        <ViewSafeAreaProvider>
+          <ViewRoot>
+            <BottomSheetModalProvider>{children}</BottomSheetModalProvider>
+          </ViewRoot>
+        </ViewSafeAreaProvider>
+      </AuthContextProvider>
+    </ThemeContextProvider>
   )
 }
 

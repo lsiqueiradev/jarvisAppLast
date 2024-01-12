@@ -48,15 +48,6 @@ export function ThemeContextProvider({ children }: ThemeProviderProps) {
     loadStorageTheme()
   }, [])
 
-  useEffect(() => {
-    if (Platform.OS === 'android') {
-      StatusBar.setBackgroundColor(
-        data === 'dark' ? dark.colors.background : light.colors.background,
-      )
-    }
-    StatusBar.setBarStyle(data === 'dark' ? 'light-content' : 'dark-content')
-  }, [data])
-
   async function toggleMode(selectedMode: ModeSchemeProps) {
     if (selectedMode !== 'system') {
       await AsyncStorage.multiSet([
@@ -74,6 +65,15 @@ export function ThemeContextProvider({ children }: ThemeProviderProps) {
       setMode('system')
     }
   }
+
+  useEffect(() => {
+    if (Platform.OS === 'android') {
+      StatusBar.setBackgroundColor(
+        data === 'dark' ? dark.colors.background : light.colors.background,
+      )
+    }
+    StatusBar.setBarStyle(data === 'dark' ? 'light-content' : 'dark-content')
+  }, [data])
 
   async function toggleTheme(selectedTheme: ThemeProps) {
     await AsyncStorage.setItem(ASYNC_STORAGE_KEY_THEME, selectedTheme)

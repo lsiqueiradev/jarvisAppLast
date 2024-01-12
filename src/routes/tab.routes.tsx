@@ -17,25 +17,28 @@ export function TabRoutes() {
     <Navigator
       screenOptions={{
         tabBarStyle: {
-          height: Platform.OS === 'ios' ? 90 : 70,
+          height: 90,
         },
         tabBarLabelStyle: {
           fontSize: RFValue(10),
           fontFamily: font_family.semi_bold,
         },
         tabBarItemStyle: {
-          height: 50,
-          marginTop: Platform.OS === 'ios' ? 10 : 12,
+          flex: 1,
+          marginTop: Platform.OS === 'ios' ? 10 : 8,
+          marginBottom: Platform.OS === 'ios' ? 0 : 6,
         },
         headerTitleStyle: {
           opacity: 0,
         },
-      }}>
+        headerShadowVisible: false,
+      }}
+      initialRouteName="Profile">
       <Screen
         name="Home"
         component={Home}
         options={{
-          title: 'Início',
+          title: 'início',
           tabBarIcon: ({ color, size }) => (
             <Feather name="home" color={color} size={size} />
           ),
@@ -45,7 +48,7 @@ export function TabRoutes() {
         name="Tab2"
         component={Tab2}
         options={{
-          title: 'Tab 2',
+          title: 'tab 2',
           tabBarIcon: ({ color, size }) => (
             <Feather name="circle" color={color} size={size} />
           ),
@@ -55,7 +58,7 @@ export function TabRoutes() {
         name="Tab3"
         component={Tab3}
         options={{
-          title: 'Tab 3',
+          title: 'tab 3',
           tabBarIcon: ({ color, size }) => (
             <Feather name="circle" color={color} size={size} />
           ),
@@ -65,7 +68,7 @@ export function TabRoutes() {
         name="Profile"
         component={Profile}
         options={{
-          title: 'Perfil',
+          title: 'perfil',
           tabBarIcon: ({ color, size }) => (
             <Feather name="user" color={color} size={size} />
           ),

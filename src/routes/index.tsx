@@ -9,8 +9,6 @@ import { Loading } from '@components/Loading'
 
 import { AppRoutes } from './app.routes'
 import { AuthRoutes } from './auth.routes'
-import { ViewRoot } from '@components/Views'
-import { SafeAreaProvider } from 'react-native-safe-area-context'
 
 export function Routes() {
   const schemeColor = useColorScheme()
@@ -27,9 +25,5 @@ export function Routes() {
     return <Loading />
   }
 
-  return (
-    <SafeAreaProvider>
-      <ViewRoot>{user ? <AppRoutes /> : <AuthRoutes />}</ViewRoot>
-    </SafeAreaProvider>
-  )
+  return user ? <AppRoutes /> : <AuthRoutes />
 }
