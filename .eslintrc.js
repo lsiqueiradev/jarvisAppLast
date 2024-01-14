@@ -8,5 +8,6 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'off',
     camelcase: 'off',
     'react-native/no-inline-styles': 'off',
+    '@typescript-eslint/no-non-null-assertion': 'off',
   },
 }

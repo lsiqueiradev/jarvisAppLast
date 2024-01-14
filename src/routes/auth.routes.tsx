@@ -1,11 +1,15 @@
 import { createStackNavigator } from '@react-navigation/stack'
 
 import { Platform } from 'react-native'
-
-import { SignIn } from '@screens/SignIn'
-import { SignUp } from '@screens/SignUp'
 import { RFValue } from 'react-native-responsive-fontsize'
 import { useTheme } from 'styled-components'
+
+import { Welcome } from '@screens/Welcome'
+import { SignInFirstStep } from '@screens/SignIn/FisrtStep'
+import { SignInSecondStep } from '@screens/SignIn/SecondStep'
+import { SignUpFirstStep } from '@screens/SignUp/FirstStep'
+import { SignUpSecondStep } from '@screens/SignUp/SecondStep'
+import { SignUpFinalStep } from '@screens/SignUp/FinalStep'
 
 const { Navigator, Screen } = createStackNavigator()
 
@@ -19,14 +23,48 @@ export function AuthRoutes() {
           fontFamily: font_family.semi_bold,
           marginTop: Platform.OS === 'android' ? 6 : 0,
         },
-        headerBackTitleVisible: false,
         headerTintColor: colors.text,
-      }}>
-      <Screen name="SignIn" component={SignIn} options={{ title: 'entrar' }} />
+
+        headerShadowVisible: false,
+        headerBackTitle: 'voltar',
+        headerBackTitleStyle: {
+          fontSize: RFValue(14),
+          fontFamily: font_family.regular,
+          marginTop: Platform.OS === 'android' ? 6 : 0,
+        },
+      }}
+      initialRouteName="Welcome">
       <Screen
-        name="SignUp"
-        component={SignUp}
-        options={{ title: 'cadastrar' }}
+        name="Welcome"
+        component={Welcome}
+        options={{
+          title: '',
+        }}
+      />
+      <Screen
+        name="SignInFirstStep"
+        component={SignInFirstStep}
+        options={{ title: '' }}
+      />
+      <Screen
+        name="SignInSecondStep"
+        component={SignInSecondStep}
+        options={{ title: '' }}
+      />
+      <Screen
+        name="SignUpFirstStep"
+        component={SignUpFirstStep}
+        options={{ title: '' }}
+      />
+      <Screen
+        name="SignUpSecondStep"
+        component={SignUpSecondStep}
+        options={{ title: '' }}
+      />
+      <Screen
+        name="SignUpFinalStep"
+        component={SignUpFinalStep}
+        options={{ title: '' }}
       />
     </Navigator>
   )

@@ -11,7 +11,6 @@ interface ActivityIndicatorProps {
 export const Container = styled(Animated.View)<ActivityIndicatorProps>`
   width: ${({ size }) => (size === 'large' ? 30 : 20)}px;
   height: ${({ size }) => (size === 'large' ? 30 : 20)}px;
-  padding: 0;
   border-width: ${({ size }) =>
     Platform.OS === 'ios' ? 2.8 : size === 'large' ? 2.2 : 2.8}px;
   border-top-color: ${({ theme, color }) =>

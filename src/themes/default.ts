@@ -2,6 +2,9 @@ export default {
   colors: {
     primary: '#E10600',
     notification: '#ff3b30',
+
+    error: '#e83f5b',
+    success: '#198754',
   },
   font_family: {
     black: 'Poppins-Black',

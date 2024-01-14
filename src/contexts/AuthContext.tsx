@@ -3,6 +3,7 @@ import { createContext, ReactNode, useEffect, useState } from 'react'
 import * as auth from '../services/auth'
 import { api } from '@services/api'
 import AsyncStorage from '@react-native-async-storage/async-storage'
+import { Alert } from 'react-native'
 
 const ASYNC_STORAGE_KEY_USER = '@jarvisApp:user'
 const ASYNC_STORAGE_KEY_TOKEN = '@jarvisApp:token'
@@ -93,30 +94,42 @@ export function AuthContextProvider({ children }: AuthProviderProps) {
   //   }
   // }
 
-  async function signIn() {
-    setIsFetchUserLoading(true)
-    const response = await auth.signIn()
+  async function signIn({ email, password }: SignInCredentials) {
+    try {
+      setIsFetchUserLoading(true)
 
-    api.defaults.headers.Authorization = `Baerer ${response.token}`
+      const response = await auth.signIn({ email, password })
 
-    await AsyncStorage.setItem(
-      ASYNC_STORAGE_KEY_USER,
-      JSON.stringify(response.user),
-    )
-    await AsyncStorage.setItem(ASYNC_STORAGE_KEY_TOKEN, response.token)
-    setData({
-      token: response.token,
-      user: response.user,
-    })
-    setIsFetchUserLoading(false)
+      const { user, token } = response
+
+      api.defaults.headers.common.Authorization = `Bearer ${token}`
+
+      await AsyncStorage.multiSet([
+        [ASYNC_STORAGE_KEY_TOKEN, token],
+        [ASYNC_STORAGE_KEY_USER, JSON.stringify(user)],
+      ])
+
+      setData({
+        token,
+        user,
+      })
+    } catch (err: any) {
+      Alert.alert('opa', err.message)
+    } finally {
+      setIsFetchUserLoading(false)
+    }
   }
 
   async function signOut() {
-    setData({} as AuthState)
-    await AsyncStorage.multiRemove([
-      ASYNC_STORAGE_KEY_USER,
-      ASYNC_STORAGE_KEY_TOKEN,
-    ])
+    setIsFetchUserLoading(true)
+    setTimeout(async () => {
+      setData({} as AuthState)
+      await AsyncStorage.multiRemove([
+        ASYNC_STORAGE_KEY_USER,
+        ASYNC_STORAGE_KEY_TOKEN,
+      ])
+      setIsFetchUserLoading(false)
+    }, 1000)
   }
 
   return (

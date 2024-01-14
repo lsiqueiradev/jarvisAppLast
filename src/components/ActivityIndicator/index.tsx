@@ -18,7 +18,7 @@ export function ActivityIndicator({
   Animated.loop(
     Animated.timing(spinValue, {
       toValue: 1,
-      duration: 800,
+      duration: 600,
       easing: Easing.linear,
       useNativeDriver: true,
     }),

@@ -34,10 +34,6 @@
       "sha1": "8a4ace9392d06bcb7f8ea2f5169b07e4c383a90d"
     },
     {
-      "path": "src/assets/fonts/Poppins-Thin.ttf",
-      "sha1": "09ba4dcd5509c8085bf88c665dcc51cbdfced27b"
-    },
-    {
       "path": "node_modules/react-native-vector-icons/Fonts/AntDesign.ttf",
       "sha1": "4e77868439280fb434d4697c7b911271406c81f3"
     },

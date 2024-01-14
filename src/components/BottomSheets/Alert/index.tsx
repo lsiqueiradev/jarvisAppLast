@@ -22,6 +22,7 @@ interface BottomSheetAlertProps {
   title: string
   description?: string
   buttons: Array<{
+    isLoading?: boolean
     text?: string
     onPress?: ((event?: GestureResponderEvent) => void) | undefined
     isPreferred?: boolean
@@ -60,6 +61,9 @@ const BottomSheetAlert = forwardRef<Ref, BottomSheetAlertProps>(
         }}>
         <BottomSheetView>
           <S.BottomSheetContainer insetBottom={insets.bottom}>
+            <S.BottomSheetContainerButtonClose onPress={() => dismiss()}>
+              <S.BottomSheetContainerButtonCloseIcon name="x" />
+            </S.BottomSheetContainerButtonClose>
             <S.BottomSheetContainerTitle>{title}</S.BottomSheetContainerTitle>
             {description && (
               <S.BottomSheetContainerDescription>
@@ -70,6 +74,7 @@ const BottomSheetAlert = forwardRef<Ref, BottomSheetAlertProps>(
               <Button
                 key={btn.text}
                 title={btn.text}
+                isDisabled={btn.isLoading}
                 onPress={btn.style === 'cancel' ? () => dismiss() : btn.onPress}
                 style={{
                   marginTop: index === 1 ? 20 : 30,

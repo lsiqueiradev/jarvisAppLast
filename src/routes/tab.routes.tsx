@@ -12,12 +12,13 @@ import { useTheme } from 'styled-components'
 const { Navigator, Screen } = createBottomTabNavigator()
 
 export function TabRoutes() {
-  const { font_family } = useTheme()
+  const { colors, font_family } = useTheme()
   return (
     <Navigator
       screenOptions={{
+        tabBarActiveTintColor: colors.text,
         tabBarStyle: {
-          height: 90,
+          height: Platform.OS === 'ios' ? 90 : 70,
         },
         tabBarLabelStyle: {
           fontSize: RFValue(10),
@@ -32,8 +33,7 @@ export function TabRoutes() {
           opacity: 0,
         },
         headerShadowVisible: false,
-      }}
-      initialRouteName="Profile">
+      }}>
       <Screen
         name="Home"
         component={Home}

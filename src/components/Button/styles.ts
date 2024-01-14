@@ -1,12 +1,13 @@
 import styled from 'styled-components/native'
 
 import { RFValue } from 'react-native-responsive-fontsize'
-import { Pressable, PressableProps } from 'react-native'
+import { Platform, Pressable, PressableProps } from 'react-native'
 
 import { ActivityIndicator } from '@components/ActivityIndicator'
 
 interface ButtonProps extends PressableProps {
   variant?: 'primary' | 'outline'
+  disabled?: boolean
 }
 
 interface ButtonTextProps {
@@ -23,6 +24,8 @@ export const Container = styled(Pressable)<ButtonProps>`
   flex-direction: row;
 
   border-width: 2px;
+  padding-top: ${({ disabled }) =>
+    Platform.OS === 'ios' ? 0 : disabled ? 0 : 2}px;
 
   background-color: ${({ theme, variant }) =>
     variant === 'primary' ? theme.colors.button_background : 'transparent'};

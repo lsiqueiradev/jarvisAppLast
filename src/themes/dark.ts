@@ -2,6 +2,10 @@ import defaultTheme from './default'
 
 export default {
   ...defaultTheme,
+  status_bar: {
+    background: '#121212',
+    style: 'light-content',
+  },
   colors: {
     background: '#121212',
     card: '#121212',

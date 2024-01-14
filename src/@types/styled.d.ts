@@ -1,5 +1,6 @@
 import 'styled-components'
 import dark from '../themes/dark'
+import { StatusBarStyle } from 'react-native'
 
 declare module 'styled-components' {
   type ThemeType = typeof dark
