@@ -1,6 +1,5 @@
-import { createStackNavigator } from '@react-navigation/stack'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
-import { Platform } from 'react-native'
 import { RFValue } from 'react-native-responsive-fontsize'
 import { useTheme } from 'styled-components'
 
@@ -11,7 +10,7 @@ import { SignUpFirstStep } from '@screens/SignUp/FirstStep'
 import { SignUpSecondStep } from '@screens/SignUp/SecondStep'
 import { SignUpFinalStep } from '@screens/SignUp/FinalStep'
 
-const { Navigator, Screen } = createStackNavigator()
+const { Navigator, Screen } = createNativeStackNavigator()
 
 export function AuthRoutes() {
   const { colors, font_family } = useTheme()
@@ -20,8 +19,7 @@ export function AuthRoutes() {
       screenOptions={{
         headerTitleStyle: {
           fontSize: RFValue(16),
-          fontFamily: font_family.semi_bold,
-          marginTop: Platform.OS === 'android' ? 6 : 0,
+          fontFamily: font_family.bold,
         },
         headerTintColor: colors.text,
 
@@ -30,7 +28,6 @@ export function AuthRoutes() {
         headerBackTitleStyle: {
           fontSize: RFValue(14),
           fontFamily: font_family.regular,
-          marginTop: Platform.OS === 'android' ? 6 : 0,
         },
       }}
       initialRouteName="Welcome">

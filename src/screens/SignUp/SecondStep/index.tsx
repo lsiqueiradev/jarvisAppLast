@@ -56,7 +56,9 @@ export function SignUpSecondStep() {
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      keyboardVerticalOffset={heightHeader}
+      keyboardVerticalOffset={
+        Platform.OS === 'ios' ? heightHeader : heightHeader + 25
+      }
       style={{ flex: 1 }}>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <S.Container>

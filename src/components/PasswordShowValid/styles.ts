@@ -13,7 +13,7 @@ export const PasswordIndicatorContainer = styled.View`
 
 export const PasswordIndicatorContainerTitle = styled.Text`
   color: ${({ theme }) => theme.colors.text};
-  font-family: ${({ theme }) => theme.font_family.semi_bold};
+  font-family: ${({ theme }) => theme.font_family.bold};
   font-size: ${RFValue(12)}px;
   margin-bottom: 5px;
 `

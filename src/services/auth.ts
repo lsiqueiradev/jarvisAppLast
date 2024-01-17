@@ -4,6 +4,7 @@ interface ResponseSignIn {
     id: string
     name: string
     email: string
+    avatar_url: string
   }
 }
 
@@ -13,6 +14,7 @@ const mockedApiData: ResponseSignIn = {
     id: 'adadadasdr23409hr7238hubsdusabd',
     name: 'Lucas Siqueira',
     email: 'lucas@lsiqueira.dev',
+    avatar_url: 'https://avatars.githubusercontent.com/u/33165370?v=4',
   },
 }
 

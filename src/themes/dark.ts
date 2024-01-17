@@ -7,8 +7,9 @@ export default {
     style: 'light-content',
   },
   colors: {
+    dark: true,
     background: '#121212',
-    card: '#121212',
+    card: '#010101',
     text: '#e5e5e7',
     border: '#272729',
     button_background: '#f2f2f2',

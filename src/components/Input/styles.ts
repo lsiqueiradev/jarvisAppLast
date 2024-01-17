@@ -14,7 +14,7 @@ export const Container = styled.View`
 `
 
 export const Label = styled.Text`
-  font-family: ${({ theme }) => theme.font_family.semi_bold};
+  font-family: ${({ theme }) => theme.font_family.bold};
   font-size: ${RFValue(14)}px;
   color: ${({ theme }) => theme.colors.text};
   margin-bottom: 4px;
@@ -47,7 +47,7 @@ export const InputContainer = styled.View<Props>`
 
 export const FormInput = styled(TextInput)`
   color: ${({ theme }) => theme.colors.text};
-  font-size: ${RFValue(15)}px;
+  font-size: ${RFValue(13)}px;
   flex: 1;
   height: 100%;
 `

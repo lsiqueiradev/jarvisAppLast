@@ -1,13 +1,14 @@
 import { Feather } from '@helpers/icons'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
+import { Platform } from 'react-native'
+import { RFValue } from 'react-native-responsive-fontsize'
+import { useTheme } from 'styled-components'
+
 import { Home } from '@screens/Home'
 import { Profile } from '@screens/Profile'
 import { Tab2 } from '@screens/Tab2'
 import { Tab3 } from '@screens/Tab3'
-import { Platform } from 'react-native'
-import { RFValue } from 'react-native-responsive-fontsize'
-import { useTheme } from 'styled-components'
 
 const { Navigator, Screen } = createBottomTabNavigator()
 
@@ -22,12 +23,12 @@ export function TabRoutes() {
         },
         tabBarLabelStyle: {
           fontSize: RFValue(10),
-          fontFamily: font_family.semi_bold,
+          fontFamily: font_family.bold,
         },
         tabBarItemStyle: {
           flex: 1,
-          marginTop: Platform.OS === 'ios' ? 10 : 8,
-          marginBottom: Platform.OS === 'ios' ? 0 : 6,
+          marginTop: Platform.OS === 'ios' ? 8 : 8,
+          marginBottom: Platform.OS === 'ios' ? 0 : 10,
         },
         headerTitleStyle: {
           opacity: 0,

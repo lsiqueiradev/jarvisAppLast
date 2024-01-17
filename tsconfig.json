@@ -8,7 +8,7 @@
         "./src/assets/*"
       ],
       "@screens/*": [
-        "./src/screens/*"
+        "src/screens/*"
       ],
       "@components/*": [
         "./src/components/*"

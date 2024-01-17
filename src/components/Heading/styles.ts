@@ -8,6 +8,6 @@ export const Container = styled.View`
 
 export const Title = styled.Text`
   font-size: ${RFValue(28)}px;
-  font-family: ${({ theme }) => theme.font_family.semi_bold};
+  font-family: ${({ theme }) => theme.font_family.bold};
   color: ${({ theme }) => theme.colors.text};
 `

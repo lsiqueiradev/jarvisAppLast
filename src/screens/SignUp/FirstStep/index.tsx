@@ -49,7 +49,9 @@ export function SignUpFirstStep() {
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      keyboardVerticalOffset={heightHeader}
+      keyboardVerticalOffset={
+        Platform.OS === 'ios' ? heightHeader : heightHeader + 25
+      }
       style={{ flex: 1 }}>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <S.Container>
@@ -66,6 +68,7 @@ export function SignUpFirstStep() {
                 <S.InputText
                   title="nome"
                   placeholder="john doe"
+                  autoCapitalize="none"
                   onChangeText={onChange}
                   value={value}
                   error={errors.name?.message}

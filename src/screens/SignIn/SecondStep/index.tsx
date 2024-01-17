@@ -59,12 +59,14 @@ export function SignInSecondStep() {
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      keyboardVerticalOffset={heightHeader}
+      keyboardVerticalOffset={
+        Platform.OS === 'ios' ? heightHeader : heightHeader + 25
+      }
       style={{ flex: 1 }}>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <S.Container>
-          <Heading title="Senha" />
-          <S.Description>Digite sua senha para continuar.</S.Description>
+          <Heading title="senha" />
+          <S.Description>digite sua senha para continuar.</S.Description>
           <S.Body>
             <Controller
               control={control}

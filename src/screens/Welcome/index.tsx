@@ -8,7 +8,7 @@ export function Welcome() {
 
   return (
     <S.Container>
-      <Heading title="Bem-vindo (a)" />
+      <Heading title="bem-vindo (a)" />
       <S.Body>
         <S.ButtonSignIn
           title="ja tenho conta"

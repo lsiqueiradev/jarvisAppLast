@@ -57,12 +57,14 @@ export function SignInFirstStep() {
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      keyboardVerticalOffset={heightHeader}
+      keyboardVerticalOffset={
+        Platform.OS === 'ios' ? heightHeader : heightHeader + 25
+      }
       style={{ flex: 1 }}>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <S.Container>
-          <Heading title="Entrar" />
-          <S.Description>Qual é o seu melhor email?</S.Description>
+          <Heading title="entrar" />
+          <S.Description>qual é o seu melhor email?</S.Description>
           <S.Body>
             <Controller
               control={control}

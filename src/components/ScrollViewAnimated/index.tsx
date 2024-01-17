@@ -1,12 +1,7 @@
 import { ReactNode, useEffect, useRef, useState } from 'react'
 
 import * as S from './styles'
-import {
-  Animated,
-  NativeScrollEvent,
-  NativeSyntheticEvent,
-  Platform,
-} from 'react-native'
+import { Animated, NativeScrollEvent, NativeSyntheticEvent } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import { Heading } from '@components/Heading'
 import { RFValue } from 'react-native-responsive-fontsize'
@@ -23,7 +18,7 @@ export function ScrollViewAnimated({ title, children }: ScrollViewProps) {
   const navigation = useNavigation()
   const yOffset = useRef(new Animated.Value(0)).current
   const headerTitleOpacity = yOffset.interpolate({
-    inputRange: [0, 50],
+    inputRange: [15, 60],
     outputRange: [0, 1],
     extrapolate: 'clamp',
   })
@@ -33,8 +28,8 @@ export function ScrollViewAnimated({ title, children }: ScrollViewProps) {
       headerTitleStyle: {
         opacity: headerTitleOpacity,
         fontSize: RFValue(16),
-        fontFamily: font_family.semi_bold,
-        marginTop: Platform.OS === 'android' ? 6 : 0,
+        fontFamily: font_family.bold,
+        fontWeight: 'bold',
       },
       headerShadowVisible: heightY >= 2,
     })

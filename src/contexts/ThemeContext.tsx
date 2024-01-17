@@ -1,10 +1,14 @@
 import { createContext, ReactNode, useEffect, useState } from 'react'
 
 import AsyncStorage from '@react-native-async-storage/async-storage'
-import { dark, light } from '../themes'
-import { ThemeProvider } from 'styled-components'
-import { StatusBar, StatusBarStyle, useColorScheme } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
+
+import { StatusBar, StatusBarStyle, useColorScheme } from 'react-native'
+
+import RNBootSplash from 'react-native-bootsplash'
+
+import { ThemeProvider } from 'styled-components'
+import { dark, light } from '../themes'
 
 const ASYNC_STORAGE_KEY_THEME = '@jarvisApp:theme'
 const ASYNC_STORAGE_KEY_MODE_SCHEME = '@jarvisApp:modeScheme'
@@ -28,8 +32,8 @@ export const ThemeContext = createContext({} as ThemeContextDataProps)
 
 export function ThemeContextProvider({ children }: ThemeProviderProps) {
   const schemeColor = useColorScheme()
-  const [data, setData] = useState<ThemeProps>(null)
-  const [mode, setMode] = useState<ModeSchemeProps>('system')
+  const [data, setData] = useState<ThemeProps>('light')
+  const [mode, setMode] = useState<ModeSchemeProps>('light')
   const [isThemeLoading, setIsThemeLoading] = useState(false)
   const [colorStatusBar, setColorStatusBar] = useState('')
   const [tintStatusBar, setTintStatusBar] = useState<StatusBarStyle>(
@@ -111,6 +115,7 @@ export function ThemeContextProvider({ children }: ThemeProviderProps) {
       }}>
       <ThemeProvider theme={data === 'dark' ? dark : light}>
         <NavigationContainer
+          onReady={() => RNBootSplash.hide({ fade: true })}
           theme={data === 'dark' ? dark.navigation : light.navigation}>
           <StatusBar
             backgroundColor={colorStatusBar}

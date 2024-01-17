@@ -7,6 +7,7 @@ export default {
     style: 'dark-content',
   },
   colors: {
+    dark: false,
     background: '#ffffff',
     card: '#f2f2f2',
     text: '#1c1c1e',
