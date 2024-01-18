@@ -54,7 +54,7 @@ const BottomSheetAlert = forwardRef<Ref, BottomSheetAlertProps>(
         enableHandlePanningGesture={false}
         backgroundStyle={{
           borderRadius: 0,
-          backgroundColor: colors.background,
+          backgroundColor: colors.card,
         }}
         handleIndicatorStyle={{
           backgroundColor: colors.text,
